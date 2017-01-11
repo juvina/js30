@@ -7,7 +7,7 @@
 <body>
   <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
 
-  <div class="controls">
+  <div class="controls" id ="test-wumbo">
     <label for="spacing">Spacing:</label>
     <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
 
@@ -28,6 +28,9 @@
       --base: #ffc600;
       --spacing: 10px;
       --blur: 10px;
+      
+    }
+    .controls{
       --wumbo: #ffffff;
     }
 
@@ -71,7 +74,12 @@
     function handleUpdate(){
       // this.dataset gets all of the data- attributes from the HTML node
       const suffix = this.dataset.sizing || '';
-      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+      if(this.name == 'wumbo'){
+        document.getElementById('test-wumbo').style.setProperty(`--${this.name}`, this.value + suffix);
+      }else{
+        document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+      }
+      
     }
     //updates variable when final input is selected
     inputs.forEach(input => input.addEventListener('change', handleUpdate));
