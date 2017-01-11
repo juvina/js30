@@ -16,6 +16,9 @@
 
     <label for="base">Base Color</label>
     <input type="color" name="base" value="#ffc600">
+    
+    <label for="wumbo">Font Color</label>
+    <input type="color" name="wumbo" value="#ffc600">
   </div>
 
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
@@ -25,6 +28,7 @@
       --base: #ffc600;
       --spacing: 10px;
       --blur: 10px;
+      --wumbo: #ffffff;
     }
 
     img{
@@ -53,6 +57,7 @@
 
     .controls {
       margin-bottom: 50px;
+      color: var(--wumbo);
     }
 
     input {
@@ -68,7 +73,7 @@
       const suffix = this.dataset.sizing || '';
       document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
     }
-    //updates variable when final input s selected
+    //updates variable when final input is selected
     inputs.forEach(input => input.addEventListener('change', handleUpdate));
     //updates variables while sliding
     inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
