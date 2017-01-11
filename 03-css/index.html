@@ -64,9 +64,14 @@
     const inputs = document.querySelectorAll('.controls input');
 
     function handleUpdate(){
-      console.log(this.value);
+      // this.dataset gets all of the data- attributes from the HTML node
+      const suffix = this.dataset.sizing || '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
     }
+    //updates variable when final input s selected
     inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    //updates variables while sliding
+    inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
   </script>
 
 </body>
