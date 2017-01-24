@@ -33,7 +33,7 @@
 
 
     //const: using const for variables that will not be rewritten.
-    
+
     // Array.prototype.filter()
     // 1. Filter the list of inventors for those who were born in the 1500's
     //ES6 version: turn function(item){} into item =>{}
@@ -44,9 +44,7 @@
     console.table(filteredInventors);
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
-    const inventorNames = inventors.map( inventor =>{
-      return inventor.first+" "+inventor.last;
-    });
+    const inventorNames = inventors.map( inventor => `${inventor.first} ${inventor.last}`);
     console.table(inventorNames);
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
