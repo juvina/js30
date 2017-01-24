@@ -42,12 +42,20 @@
         ( 1499 < inventor.year)&&(inventor.year < 1600)  
     );
     console.table(filteredInventors);
+    
     // Array.prototype.map()
     // 2. Give us an array of the inventors' first and last names
     const inventorNames = inventors.map( inventor => `${inventor.first} ${inventor.last}`);
     console.table(inventorNames);
+    
     // Array.prototype.sort()
     // 3. Sort the inventors by birthdate, oldest to youngest
+    const inventorsByBirthdate = inventors.sort( (first, second) =>{
+      if(first.year < second.year){ return -1;}
+      if(first.year > second.year){ return 1;}
+      return 0;
+    });
+    console.table(inventorsByBirthdate);
 
     // Array.prototype.reduce()
     // 4. How many years did all the inventors live?
